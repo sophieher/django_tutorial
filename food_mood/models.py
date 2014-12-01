@@ -8,7 +8,7 @@ class Entry(models.Model):
     pub_date = models.DateTimeField('date published')
     eater = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, related_name='entries')
     
-    def __unidcode__(self):
+    def __unicode__(self):
         return self.food
     
 class UserProfile(models.Model):

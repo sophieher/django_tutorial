@@ -4,8 +4,14 @@
 	<title>Food Mood</title>
 </head>
 <body>
+	{% if user.is_authenticated %}
+	<h1>hello {{ user.username }}!</h1>
+	{% else %}
 	<h1>Welcome to Food Mood</h1>
+	{% endif %}
+	
 	{{ passedmessage }}
+	
 	<p>
 		<a href="/food_mood/signup/">Sign Up Here!</a>
 	</p>

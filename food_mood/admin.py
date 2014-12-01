@@ -6,4 +6,4 @@ admin.site.register(UserProfile)
 
 class EntryAdmin(admin.ModelAdmin):
     exclude = ('eater',)
-    list_display = ('food', 'mood', 'pub_date', 'eater')
+    list_display = ('pub_date', 'food', 'mood', 'eater')
