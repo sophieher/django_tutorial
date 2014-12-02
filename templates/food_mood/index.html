@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Food Mood</title>
-</head>
-<body>
+{% extends 'food_mood/base.html' %}
+
+{% block content %}
 	{% if user.is_authenticated %}
 	<h1>hello {{ user.username }}!</h1>
 	Add a food/mood<br />
@@ -19,5 +16,5 @@
 	<p>
 		<a href="/food_mood/signup/">Sign Up Here!</a>
 	</p>
-</body>
-</html>
+
+{% endblock %}

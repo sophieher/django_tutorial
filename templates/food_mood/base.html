@@ -7,6 +7,12 @@
 	<meta name="description" content="">
 	<meta name="author" content="Sophie Her">
 	<meta name="google" value="notranslate">
+	{% load compress %}
+	{% load staticfiles %}
+
+	{% compress css %}
+	    <link rel="stylesheet" type="text/scss" href="{% static 'styles.scss' %}" />
+	{% endcompress %}
 	<title>Food Mood</title>
 </head>
 <body>
