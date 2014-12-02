@@ -46,7 +46,7 @@ h1 {
 
 button {
 	height: 50px;
-	@include button;
+	@include button($add-green);
 	@include border-top-radius(25px);
 	@include border-bottom-radius(25px);
 }

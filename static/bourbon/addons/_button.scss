@@ -1,4 +1,4 @@
-@mixin button ($style: simple, $base-color: #5CD668) {
+@mixin button ($style: simple, $base-color: #4294f0) {
 
   @if type-of($style) == color {
     $base-color: $style;
