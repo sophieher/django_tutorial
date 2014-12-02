@@ -1,7 +1,68 @@
+@import "bourbon/bourbon";
 $font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
+$text-color: #333;
+$bg-color: #F3F3F3;
+$date-blue: #68AFE2;
+$content-green: #55C160;
+$add-green: #5CD668;
+$header: #E8AD7D;
 
 body {
   font: 100% $font-stack;
-  color: $primary-color;
+  color: $text-color;
+  background-color: $bg-color;
+  margin: 0;
+  width: 100%;
+}
+
+a {
+	color: $text-color;
+	text-decoration: none;
+}
+
+.container {
+	width: 960px;
+	margin: auto;
+}
+
+// Bourbon mixin with Sass
+
+header {
+	background-color: $header;
+	height: 88px;
+	text-align: center;
+}
+
+header h1 {
+	font-size: 400%;
+	margin-top: 0;	
+	padding-top: 16px;
+}
+
+h1 {
+  font-family: $font-stack;
+  font-size: golden-ratio(14px,  1);
+}
+
+button {
+	height: 50px;
+	@include button;
+	@include border-top-radius(25px);
+	@include border-bottom-radius(25px);
+}
+
+.entry {
+	background-color: $content-green;
+	margin: 0;
+}
+
+.entry h2 {
+	background-color: $date-blue;
+	height: 40px;
+	padding: 20px 0 0 15px;
+}
+
+.entry p {
+	text-align: center;
+	font-size: 200%;
 }

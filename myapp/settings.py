@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'food_mood',
     'compressor',
+    'bourbon',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,6 +62,10 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'compressor.finders.CompressorFinder',
 )
+
+# STATICFILES_DIRS = (
+#     '/venv/lib/site-packages/bourbon/static/',
+# )
 
 COMPRESS_PRECOMPILERS = (
     ('text/scss', 'sass --scss {infile} {outfile}'),

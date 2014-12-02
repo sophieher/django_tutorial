@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
+from django.views import generic
 from food_mood.forms import UserForm, UserProfileForm, AddForm
 from food_mood.models import Entry
 
@@ -110,13 +111,15 @@ def user_logout(request):
 
     # Take the user back to the homepage.
     return HttpResponseRedirect('/food_mood/')
-  
-def entries(request):  
-    url = 'food_mood/entries.html'
-    foodmood_list = Entry.objects.order_by('-pub_date')
-    context = {'foodmood_list':foodmood_list}
-    return render(request, url, context)
-    
+
+
+class EntryView(generic.ListView):
+    template_name = 'food_mood/entries.html'
+    context_object_name = 'foodmood_list'
+
+    def get_queryset(self):
+        return Entry.objects.filter(eater = self.request.user).order_by('-pub_date')
+
 def entry(request, entry_id):
     entry = get_object_or_404(Entry, pk=entry_id)
     return render(request, 'food_mood/entry.html', {'entry': entry})

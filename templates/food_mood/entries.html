@@ -3,10 +3,12 @@
 {% block content %}
 
 	{% for entry in foodmood_list %}
+	<section class="entry">
 	<h2><a href="{% url 'food_mood:entry' entry.id %}">{{ entry.pub_date }}</a></h2>
-		Food: {{ entry.food }}<br />
-		Mood: {{ entry.mood }}<br />
+		<p>{{ entry.food }}</p>
+		<p>{{ entry.mood }}</p><br />
 		<hr>
+	</section>
 	{% endfor %}
 
 {% endblock %}

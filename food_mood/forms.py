@@ -15,6 +15,6 @@ class UserProfileForm(forms.ModelForm):
         fields = ('website', 'photo')
         
 class AddForm(forms.ModelForm):
-        class Meta:
-            model = Entry
-            fields = ('meal', 'food', 'mood')
+    class Meta:
+        model = Entry
+        fields = ('meal', 'food', 'mood')
