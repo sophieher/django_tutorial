@@ -1,0 +1,12 @@
+{% extends 'food_mood/base.html' %}
+
+{% block content %}
+
+	{% for entry in foodmood_list %}
+	<h2><a href="{% url 'food_mood:entry' entry.id %}">{{ entry.pub_date }}</a></h2>
+		Food: {{ entry.food }}<br />
+		Mood: {{ entry.mood }}<br />
+		<hr>
+	{% endfor %}
+
+{% endblock %}

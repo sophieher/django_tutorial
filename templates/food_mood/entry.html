@@ -1,0 +1,10 @@
+{% extends 'food_mood/base.html' %}
+
+{% block content %}
+<p>
+	<h1>{{ entry.pub_date }}</h1>
+	<h2>{{ entry.food }}</h2>
+	{{ entry.mood }}<br />
+ 	{{ entry.eater.username }}
+</p>
+{% endblock %}

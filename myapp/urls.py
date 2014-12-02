@@ -7,6 +7,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'myapp.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')), which includes all views from blog
 
-    url(r'^food_mood/', include('food_mood.urls')),
+    url(r'^food_mood/', include('food_mood.urls', namespace="food_mood")),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^polls/', include('polls.urls', namespace="polls")),
 )
