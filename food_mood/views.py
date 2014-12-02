@@ -110,7 +110,7 @@ def user_logout(request):
     logout(request)
 
     # Take the user back to the homepage.
-    return HttpResponseRedirect('/food_mood/')
+    return HttpResponseRedirect('/')
 
 
 class EntryView(generic.ListView):
