@@ -3,8 +3,8 @@
 {% block content %}
 	{% if user.is_authenticated %}
 	<h1>hello {{ user.username }}!</h1>
-	Add a food/mood<br />
-	My food/moods!<br />
+	<a href="add">Add a food/mood</a><br />
+	<a href="entries">My food/moods!<br />
 	<a href="/restricted/">Restricted Page</a><br />
 	<a href="food_mood/logout/">Logout</a><br />
 	{% else %}
@@ -14,6 +14,7 @@
 	{{ passedmessage }}
 	
 	<p>
+		<a href="/food_mood/login/">Login</a><br />
 		<a href="/food_mood/signup/">Sign Up Here!</a>
 	</p>
 

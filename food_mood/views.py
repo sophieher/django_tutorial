@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
-from food_mood.forms import UserForm, UserProfileForm
+from food_mood.forms import UserForm, UserProfileForm, AddForm
 from food_mood.models import Entry
 
 @login_required
@@ -120,4 +120,36 @@ def entries(request):
 def entry(request, entry_id):
     entry = get_object_or_404(Entry, pk=entry_id)
     return render(request, 'food_mood/entry.html', {'entry': entry})
+    
+@login_required
+def add_food_mood(request):
+    # Like before, obtain the context for the user's request.
+    context = RequestContext(request)
+
+    # If the request is a HTTP POST, try to pull out the relevant information.
+    if request.method == 'POST':
+        add_form = AddForm(data=request.POST)
+        # Gather the entry data provided by the user.
+        # This information is obtained from the add form.
+        # pub_date = datetime.now()
+        eater = request.user
+        
+        if add_form.is_valid():
+            entry = add_form.save()
+            # entry.pub_date = pub_date
+            entry.eater = eater
+            
+            entry.save()
+                        
+        else:
+            print add_form.errors
+            
+    else: #not a http post
+        add_form = AddForm()
+        
+    return render_to_response(
+            'food_mood/add.html',
+            {'add_form': add_form},
+            context
+            )
     

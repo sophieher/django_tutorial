@@ -1,4 +1,4 @@
-from food_mood.models import UserProfile
+from food_mood.models import UserProfile, Entry
 from django.contrib.auth.models import User
 from django import forms
 
@@ -14,3 +14,7 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ('website', 'photo')
         
+class AddForm(forms.ModelForm):
+        class Meta:
+            model = Entry
+            fields = ('meal', 'food', 'mood')

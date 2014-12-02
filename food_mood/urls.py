@@ -10,6 +10,7 @@ urlpatterns = patterns ('',
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^restricted/', views.restricted, name='restricted'),
     url(r'^entries/$', views.entries, name='entries'),
-    # ex: /entries/5/
+    # ex: /entries/#{id}
     url(r'^entries/(?P<entry_id>\d+)/$', views.entry, name='entry'),
+    url(r'add/$', views.add_food_mood, name='add'),
 )

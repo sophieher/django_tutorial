@@ -5,7 +5,7 @@ class Entry(models.Model):
     meal = models.IntegerField(default=1)   #number of the meal, 1 for first, etc
     food = models.CharField(max_length=200) 
     mood = models.IntegerField(default=10)  #mood from 1 sucky to 10 the best
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField('date published', auto_now_add=True)
     eater = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL, related_name='entries')
     
     def __unicode__(self):
