@@ -10,4 +10,6 @@ urlpatterns = patterns('',
     url(r'^food_mood/', include('food_mood.urls', namespace="food_mood")),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^polls/', include('polls.urls', namespace="polls")),
+    (r'^accounts/', include('allauth.urls')),
 )
+

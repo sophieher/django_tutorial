@@ -1,5 +1,6 @@
 {% extends 'food_mood/base.html' %}
 
+	
 {% block content %}
 
 	<form id="add_form" method="post" action="{% url 'food_mood:add' %}" method='post'>
@@ -9,7 +10,11 @@
 		<p>What food did you eat? <br />
 			<input type='text' name='food' placeholder='food' /> </p>
 		<p>What is your mood? (Scale 1-10, 1 is the worst, 10 is the best ever!!)<br />
-			<input type="number" name="mood" min="1" max="10" /></p>
-		<input type='submit' value='Add' />
+			<input type="number" name="mood" min="1" max="10" />
+			<!-- <label for=fader>Mood</label>
+
+			<input type=range min=0 max=10 value=5 id=mood  -->
+		</p>
+		<input type='submit' class='btn-add' value='Add' />
 	</form>
 {% endblock %}

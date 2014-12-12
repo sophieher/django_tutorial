@@ -1,21 +1,50 @@
 {% extends 'food_mood/base.html' %}
-
+{% block auth %}
+{% endblock %}
 {% block content %}
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '620594911382829',
+      xfbml      : true,
+      version    : 'v2.2'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+   
 	{% if user.is_authenticated %}
-	<h1>hello {{ user.username }}!</h1>
-	<button type="button"><a href="add">Add!</a></button><br />
+	
+	<a href="/accounts/logout/" class="pull-right">Logout</a>
+	<br /> 
+	<h1>hello <a href="profile">{{ user.username }}!</a></h1>
+	<a href="add"><button type="button" class="btn-add">Add!</button></a><br /><br />
 	<a href="entries">My food/moods!<br />
-	<a href="restricted">Restricted Page</a><br />
-	<a href="logout">Logout</a><br />
+	<br />
+	 <!-- <img src="{{ request.user.profile.profile_image_url }}"/> -->
+	
 	{% else %}
 	<h1>Welcome to Food Mood</h1>
-	{% endif %}
-	
-	{{ passedmessage }}
-	
 	<p>
-		<a href="/food_mood/login/">Login</a><br />
-		<a href="/food_mood/signup/">Sign Up Here!</a>
+		<!-- <div
+		  class="fb-like"
+		  data-share="true"
+		  data-width="450"
+		  data-show-faces="true">
+		</div><br /> -->
+		{% load socialaccount %}
+		<a href="{% provider_login_url "facebook" method="oauth2" %}">Sign in with Facebook</a> or 
+		<a href="{% provider_login_url "google" method="oauth2" %}">Sign in with Google</a><br />
+		
+		<a href="/accounts/login/">Login</a><br />
+		<a href="/accounts/signup/">Sign Up Here!</a>
 	</p>
-
+	{% endif %}
 {% endblock %}

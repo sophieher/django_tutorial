@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>	<title>My Django App</title> </head>
-<body>
-	<div class='container'>
-	{{ passedmessage }}
+{% extends 'base.html' %}
+
+
+	{% block title %}
+	<title>My Django App</title> 
+	{% endblock %}
+	
+	{% block header %}
+		<h1>Sophie's Django App </h1>
+	{% endblock %}
+	
+	{% block content %}
+	<p>
+		<h2>{{ passedmessage }}</h2>
+	</p>
+	<p>
 	<br />
-	This is my blanket app that contains small tutorial apps within. <br />
+	This Django App was created to contain the sample app, Polls, a food diary app, and a blog. <br />
+	</p>
+	
 	<ul id='app_list'>
 		<li><a href='#'>Polls</a> - Not finished</li>
 		<li><a href='/food_mood/'>FoodMood</a> - in dev</li>
 		<li>Blog - future</li>
 	</ul>
-</div>
-</body>
-</html>
+	
+	{% endblock %}

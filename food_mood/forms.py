@@ -18,3 +18,4 @@ class AddForm(forms.ModelForm):
     class Meta:
         model = Entry
         fields = ('meal', 'food', 'mood')
+        # mood = forms.IntegerField(widget=NumberInput(attrs={'type':'range', 'step': '2'}))

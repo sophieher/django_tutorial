@@ -2,13 +2,14 @@
 $font-stack:    Helvetica, sans-serif;
 $text-color: #333;
 $bg-color: #F3F3F3;
+$container-color: #DBD9D9;
 $date-blue: #68AFE2;
 $content-green: #55C160;
 $add-green: #5CD668;
 $header: #E8AD7D;
 
 body {
-  font: 100% $font-stack;
+  font: 2em $font-stack;
   color: $text-color;
   background-color: $bg-color;
   margin: 0;
@@ -17,12 +18,24 @@ body {
 
 a {
 	color: $text-color;
-	text-decoration: none;
+//	text-decoration: none;
 }
 
+//#{$all-text-inputs} {
+//  border: 4px solid green;
+//}
+//#{$all-text-inputs-hover} { // Target the :hover pseudo-class
+//  background: yellow;
+//}
+//#{$all-text-inputs-focus} { // Target the :focus pseudo-class
+//  background: purple;
+//}
+
 .container {
+	background-color: $container-color;
 	width: 960px;
 	margin: auto;
+	padding: 10px 0 0;
 }
 
 // Bourbon mixin with Sass
@@ -34,7 +47,7 @@ header {
 }
 
 header h1 {
-	font-size: 400%;
+	font-size: 64px;
 	margin-top: 0;	
 	padding-top: 16px;
 }
@@ -42,13 +55,19 @@ header h1 {
 h1 {
   font-family: $font-stack;
   font-size: golden-ratio(14px,  1);
+  font-weight: bold;
 }
 
-button {
+.btn-add {
 	height: 50px;
 	@include button($add-green);
 	@include border-top-radius(25px);
 	@include border-bottom-radius(25px);
+}
+
+#author {
+	font-size: 100%;
+	text-align: right;
 }
 
 .entry {
@@ -58,11 +77,20 @@ button {
 
 .entry h2 {
 	background-color: $date-blue;
+	font-size: 100%;
+	font-family: $font-stack;
+	font-weight: bold;
 	height: 40px;
-	padding: 20px 0 0 15px;
+	margin: 5px 0;
+	padding: 10px;
 }
 
 .entry p {
 	text-align: center;
 	font-size: 200%;
+	margin: 40px;
+}
+
+#add-form {
+	text-align: center;
 }
