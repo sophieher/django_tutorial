@@ -6,6 +6,7 @@
 	<a href="add"><button type="button" class="btn-add">Add!</button></a><br /><br />
 	{% for entry in foodmood_list %}
 	<section class="entry">
+
 	<h2><a href="{% url 'food_mood:entry' entry.id %}">{{ entry.pub_date }}</a></h2>
 		<p>{{ entry.food | upper }}</p>
 		<p>{{ entry.mood }}</p>
