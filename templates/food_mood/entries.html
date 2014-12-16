@@ -3,7 +3,7 @@
 {% block content %}
 
 		
-	<a href="add"><button type="button" class="btn-add">Add!</button></a><br /><br />
+	
 	{% for entry in foodmood_list %}
 	<section class="entry">
 
@@ -13,6 +13,7 @@
 		<br />
 		<hr>
 	</section>
-	{% endfor %}
 	
+	{% endfor %}
+	<a href="add"><button type="button" class="btn-add">Add!</button></a><br /><br />
 {% endblock %}
