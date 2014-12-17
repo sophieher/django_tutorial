@@ -9,16 +9,12 @@
 			<p><input type="number" name="meal" min="1" max="5" /></p>
 		<p>What food did you eat?</p>
 			<p><input type='text' name='food' placeholder='food' /> </p>
-		<p>What is your mood? (Scale 1-10, 1 is the worst, 10 is the best ever!!)</p>
+		<p>What is your mood? (Scale 1-10, from the worst to the best ever!!)</p>
 			<p>
-				{{ add_form.mood }}<output id="mood_number">&nbsp;</output>
+				{{ add_form.mood }}<output id="emoji"><img src="http://twemoji.maxcdn.com/72x72/1f610.png" /></output>
 			</p>
 		<input type='submit' class='btn-add' value='Add' />
 	</form>
-	
-	<script type="text/javascript">
-	    function updateTextInput(val) {
-	      document.getElementById('mood_number').value=val; 
-	    }
-	  </script>
+	<!-- Twemoji by Twitter 2014 Code licensed under the MIT License Graphics licensed under CC-BY 4.0-->
+	<script type="text/javascript" src="/static/js/emoji-picker.js"></script>
 {% endblock %}

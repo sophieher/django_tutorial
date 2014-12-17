@@ -28,7 +28,7 @@ body {
 
 a {
 	color: $text-color;
-//	text-decoration: none;
+	text-decoration: none;
 }
 
 #{$all-text-inputs} {
@@ -43,11 +43,11 @@ a {
 //  background: purple;
 //}
 
-.container {
+.container, nav {
 //	background-color: $container-color;
 	width: 960px;
 	margin: auto;
-	padding: 10px 0 0;
+	padding: 0;
 }
 
 // Bourbon mixin with Sass
@@ -92,8 +92,9 @@ h1 {
 
 .entry {
 	background-color: $container-color;
-	box-shadow: 3px 2px 3px #888888;
+//	box-shadow: 3px 2px 3px #888888;
 	margin: 0;
+//	width: 100%;
 }
 
 .entry h2 {
