@@ -43,11 +43,30 @@ a {
 //  background: purple;
 //}
 
-.container, nav {
+.container-fluid {
 //	background-color: $container-color;
-	width: 960px;
+	max-width: 960px;
 	margin: auto;
 	padding: 0;
+}
+
+[class*="col-"] {
+	padding:0;
+}
+
+.tabs {
+	background-color: $bg-color;
+	width: 960px;
+	margin: auto;
+	position: relative; 
+	padding: 0;	
+	z-index: 10001;
+}
+
+.main-nav-scrolled {
+  position: fixed;
+  width: 100%;
+  top: 0;
 }
 
 // Bourbon mixin with Sass
@@ -56,7 +75,7 @@ header {
 	@include background-image(url("/static/images/a.jpg"));
 	background-color: $header;
 	background-attachment: fixed;
-    background-position: 60% 74.5%; 
+    background-position: 50% 76.5%; 
 	height: 188px;
 	text-align: center;
 }
@@ -69,15 +88,16 @@ header h1 {
 
 h1 {
   font-family: $font-stack;
-  font-size: golden-ratio(14px,  1);
+//  font-size: golden-ratio(14px,  1);
   font-weight: bold;
 }
 
 .btn-add {
 	bottom: 15px;
 	height: 50px;
+	float:right;
 	margin: 15px;
-	position: fixed;
+//	position: fixed;
 	right: 15px;
 	
 	@include button($add-green);

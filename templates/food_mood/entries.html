@@ -1,7 +1,7 @@
 {% extends 'food_mood/base.html' %}
 
 {% block content %}
-	
+	<div class="col-xs-12 col-md-12 col-lg-11">
 	{% for entry in foodmood_list %}
 	<section class="entry">
 
@@ -13,5 +13,8 @@
 	</section>
 	
 	{% endfor %}
+</div>
+<div class="col-xs-12 col-md-12 col-lg-1">
 	<a href="add"><button type="button" class="btn-add">Add!</button></a><br /><br />
+</div>
 {% endblock %}

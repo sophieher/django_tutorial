@@ -23,17 +23,12 @@
 	<h1>hello <a href="profile">{{ user.username }}!</a></h1>
 	<a href="entries">My food/moods!<br />
 	<a href="add"><button type="button" class="btn-add">Add!</button></a>
-	 <!-- <img src="{{ request.user.profile.profile_image_url }}"/> -->
 	
+	 <img src="{{ user.profile.profile_image_url }}"/>
+
 	{% else %}
 	<h1>Welcome to Food Mood</h1>
 	<p>
-		<!-- <div
-		  class="fb-like"
-		  data-share="true"
-		  data-width="450"
-		  data-show-faces="true">
-		</div><br /> -->
 		{% load socialaccount %}
 		<a href="{% provider_login_url "facebook" method="oauth2" %}">Sign in with Facebook</a> or 
 		<a href="{% provider_login_url "google" method="oauth2" %}">Sign in with Google</a><br />

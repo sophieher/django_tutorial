@@ -10,7 +10,6 @@
 	
 	{% load compress %}
 	{% load staticfiles %}
-
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -18,11 +17,9 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	
-	
 	{% compress css %}
 	    <link rel="stylesheet" type="text/x-scss" href="{% static 'styles.scss' %}" />
 	{% endcompress %}
-	
 	
 	{% block title %}
 	{% endblock %}
@@ -31,19 +28,50 @@
 <body>
 	<header>
 	{% block header %}
-	
 	{% endblock %}
 	</header>
 	
-	
 	{% block auth %}
+	
+	<nav class="tabs">
+		<ul class="nav nav-tabs">
+			<li role="presentation" class="active"><a href="/">Apps</a></li>
+			<li role="presentation"><a href="#">About</a></li>
+
+			{% if user.is_authenticated %}
+			<li role="presentation" class="dropdown pull-right">
+		  	  <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+		    	  {{ user.username }}
+		      <span class="caret"></span>
+			  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+	    		  <li role="presentation"><a role="menuitem" tabindex="-1" href="/food_mood/profile">Profile</a></li>
+	    		  <li role="presentation" class="disabled"><a role="menuitem" tabindex="-1" href="#">Trends-Coming Soon</a></li>
+				  <li role="presentation"><a role="menuitem" tabindex="-1" href="/accounts/logout/">Logout</a></li>
+		  	  </ul>
+	  	    </li> <!-- End Dropdown -->
+	  	  	{% endif %}
+		</ul>
+	</nav>
+	
 	{% endblock %}
 	
-	<div class="container">
+	<div class="container-fluid">
 	{% block content %}
 	{% endblock %}
 	
 </div>
+<script type='text/javascript'>
+$( window ).scroll( function() {
+	var  mn = $(".tabs");
+	    mns = "main-nav-scrolled";
+	    h = $('header').height();
+	if( $(this).scrollTop() > h ) {
+	    mn.addClass(mns);
+	  } else {
+	    mn.removeClass(mns);
+	  }
+});
+</script>
 	
 </body>
 </html>
