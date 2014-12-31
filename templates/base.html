@@ -33,7 +33,7 @@
 	
 	{% block auth %}
 	
-	<nav class="tabs">
+	<nav class="tabs responsive">
 		<ul class="nav nav-tabs">
 			<li role="presentation" class="active"><a href="/">Apps</a></li>
 			<li role="presentation"><a href="#">About</a></li>
@@ -62,13 +62,17 @@
 </div>
 <script type='text/javascript'>
 $( window ).scroll( function() {
-	var  mn = $(".tabs");
-	    mns = "main-nav-scrolled";
+	var  nav = $(".tabs");
+	    scrollNav = "main-nav-scrolled";
 	    h = $('header').height();
 	if( $(this).scrollTop() > h ) {
-	    mn.addClass(mns);
+		if (!$(".tabs ul").find('#fm-logo').length) {
+			$(".tabs ul").prepend('<li id=\"fm-logo\" role="presentation"> <h3>FOOD MOOD </h3></li>');
+		}
+	    nav.addClass(scrollNav);
 	  } else {
-	    mn.removeClass(mns);
+	    nav.removeClass(scrollNav);
+		$("#fm-logo").remove();
 	  }
 });
 </script>

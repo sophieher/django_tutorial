@@ -110,9 +110,11 @@ SOCIALACCOUNT_PROVIDERS = \
         'LOCALE_FUNC':  lambda request: 'en-US',
         # 'LOCALE_FUNC': 'path.to.callable',
         'VERIFIED_EMAIL': False,
-        'VERSION': 'v2.2'}}
-
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+        'VERSION': 'v2.2'},
+        
+    'google':
+        { 'SCOPE': ['profile', 'email'],
+          'AUTH_PARAMS': { 'access_type': 'online' } }}
 
 LOGIN_URL = '/food_mood/login/'
 LOGIN_REDIRECT_URL = '/food_mood/'

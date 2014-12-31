@@ -54,6 +54,10 @@ a {
 	padding:0;
 }
 
+#fm-logo {
+	margin: auto 12px auto;
+}
+
 .tabs {
 	background-color: $bg-color;
 	width: 960px;
@@ -93,12 +97,10 @@ h1 {
 }
 
 .btn-add {
-	bottom: 15px;
+	top: 255px;
 	height: 50px;
-	float:right;
-	margin: 15px;
-//	position: fixed;
-	right: 15px;
+	position: fixed;
+	right: 3%;
 	
 	@include button($add-green);
 	@include border-top-radius(15px);

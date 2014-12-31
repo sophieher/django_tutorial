@@ -28,11 +28,12 @@ class UserProfile(models.Model):
         return "{}'s profile".format(self.user.username)
     
     def profile_image_url(self):
-        fb_uid = SocialAccount.objects.filter(user_id=self.user.id, provider='facebook')
+        uid = SocialAccount.objects.filter(user_id=self.user.id)
  
-        if len(fb_uid):
-            return "http://graph.facebook.com/{}/picture?".format(fb_uid[0].uid)
-        return self.photo
+        if len(uid):
+            return uid[0].get_avatar_url()
+        
+        return self.photo.url[47:]
         
     class Meta:
         db_table = 'user_profile'

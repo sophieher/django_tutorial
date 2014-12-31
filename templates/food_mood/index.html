@@ -20,11 +20,11 @@
 </script>
    
 	{% if user.is_authenticated %}
-	<h1>hello <a href="profile">{{ user.username }}!</a></h1>
+	<h1><img src="{{ user.profile.profile_image_url }}" alt=" " width="80px"/> hello <a href="profile">{{ user.username }}!</a></h1>
 	<a href="entries">My food/moods!<br />
 	<a href="add"><button type="button" class="btn-add">Add!</button></a>
 	
-	 <img src="{{ user.profile.profile_image_url }}"/>
+	 
 
 	{% else %}
 	<h1>Welcome to Food Mood</h1>
